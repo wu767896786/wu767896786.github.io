@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025个税汇算清缴通知 + 专项附加扣除详解</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #f5f7fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px -10px rgba(0, 20, 30, 0.15);
+            overflow: hidden;
+            border: 1px solid #eaeef2;
+        }
+        .header {
+            background: linear-gradient(98deg, #0b2b3b 0%, #1b4b5e 100%);
+            color: white;
+            padding: 2.5rem 3rem;
+            position: relative;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" opacity="0.1"><path fill="white" d="M60,140 L20,100 L60,60 L140,60 L180,100 L140,140 Z"/><circle cx="100" cy="100" r="25" fill="none" stroke="white" stroke-width="4"/></svg>') no-repeat;
+            background-size: contain;
+            background-position: right bottom;
+        }
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        .header h1 small {
+            font-size: 1rem;
+            font-weight: 300;
+            margin-left: 1rem;
+            opacity: 0.8;
+        }
+        .header .date-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(4px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-top: 0.8rem;
+        }
+        .content {
+            padding: 2.5rem 3rem;
+        }
+        .section {
+            margin-bottom: 3rem;
+            border-bottom: 1px dashed #cfdde6;
+            padding-bottom: 2rem;
+        }
+        .section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #0b2b3b;
+            margin-bottom: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .section-title .badge {
+            background: #1b4b5e;
+            color: white;
+            font-size: 1rem;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-weight: 400;
+        }
+        .notice-block {
+            background-color: #f8fcff;
+            border-left: 5px solid #1b4b5e;
+            padding: 1.6rem 2rem;
+            border-radius: 12px 20px 20px 12px;
+            margin-bottom: 2rem;
+        }
+        .notice-block p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #1a2e3b;
+            margin-bottom: 1rem;
+        }
+        .notice-block .strong {
+            font-weight: 600;
+            color: #0b2b3b;
+        }
+        .highlight-box {
+            background: #e5f2f7;
+            border-radius: 20px;
+            padding: 1.2rem 2rem;
+            margin: 1.5rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .pill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.2rem 0;
+        }
+        .pill {
+            background: #ffffff;
+            border: 1px solid #bed7e3;
+            border-radius: 40px;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.95rem;
+            color: #1b4b5e;
+            box-shadow: 0 2px 6px rgba(0,40,50,0.02);
+        }
+        .pill strong {
+            color: #0b2b3b;
+            margin-right: 4px;
+        }
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0.5rem 0;
+        }
+        .step-item {
+            counter-increment: step-counter;
+            margin-bottom: 1.8rem;
+            padding-left: 3.5rem;
+            position: relative;
+            min-height: 3rem;
+        }
+        .step-item::before {
+            content: counter(step-counter);
+            background: #1b4b5e;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            box-shadow: 0 6px 12px rgba(20,80,100,0.2);
+        }
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0b2b3b;
+            margin-bottom: 0.4rem;
+        }
+        .step-desc {
+            color: #2f4a5c;
+            line-height: 1.6;
+        }
+        .step-desc ul, .step-desc ol {
+            margin: 0.5rem 0 0.5rem 1.5rem;
+        }
+        .tip-note {
+            background-color: #fef8e7;
+            border-radius: 16px;
+            padding: 1.2rem 2rem;
+            border: 1px solid #f7e2b5;
+            color: #5d4a2e;
+            margin: 1.2rem 0;
+        }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+        .mock-btn {
+            background: white;
+            border: 1.5px solid #1b4b5e;
+            color: #1b4b5e;
+            padding: 0.8rem 2.2rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .mock-btn.primary {
+            background: #1b4b5e;
+            color: white;
+            border: none;
+            box-shadow: 0 10px 18px -8px #1b4b5e;
+        }
+        .footer-note {
+            margin-top: 2.5rem;
+            font-size: 0.95rem;
+            color: #5f7a8c;
+            text-align: center;
+            border-top: 1px solid #d4e2ea;
+            padding-top: 2rem;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #cfdde6;
+            margin: 1.8rem 0;
+        }
+        @media (max-width: 800px) {
+            .header { padding: 2rem 1.5rem; }
+            .content { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>2025 年度个人所得税汇算清缴 <small>通知及操作指引</small></h1>
+        <div class="date-tag">🔹 发布: 2026年3月3日  🔹 截止: 2026年6月30日</div>
+    </div>
+
+    <div class="content">
+        <!-- 第一部分：通知内容（无奖金提醒） -->
+        <section class="section">
+            <div class="section-title">
+                <span>📋 关于办理2025年度个税汇算的通知</span>
+                <span class="badge">必须传达至每位员工</span>
+            </div>
+
+            <div class="notice-block">
+                <p><span class="strong">各位项目/部门负责人及全体同事：</span></p>
+                <p>根据国家税务总局规定，<span class="strong">2025年度个人所得税综合所得汇算清缴</span>已于 <strong>2026年3月1日</strong> 正式启动，截止时间为 <strong>2026年6月30日</strong>。请各项目及部门负责人务必告知本部门人员，及时、准确完成汇算，以免影响个人纳税信用或产生滞纳金。</p>
+            </div>
+
+            <div class="pill-list">
+                <span class="pill"><strong>✅ 必须办理人群</strong> 预缴税额＞应纳税额（申请退税）或 年收入＞12万且补税＞400元</span>
+                <span class="pill"><strong>🔄 无需办理人群</strong> 年收入≤12万 且 补税≤400元 或 预缴税=应纳税额</span>
+            </div>
+
+            <div class="highlight-box">
+                <span style="font-weight:600;">⏰ 办理时间点</span>
+                <span>📅 3月1日-3月20日：需在个税APP预约</span>
+                <span>📅 3月21日-6月30日：无需预约，随时办理</span>
+            </div>
+
+            <ul style="list-style-type: none; padding-left:0; margin: 1.5rem 0; line-height: 1.8;">
+                <li style="margin-bottom:0.8rem;">⭐ <strong>特别提醒1：核对专项附加扣除</strong> — 尤其注意“大病医疗”（仅汇算期间可填）、子女教育、住房贷款/租金等。</li>
+                <li style="margin-bottom:0.8rem;">⭐ <strong>请各项目/部门负责人</strong> 传达至每一位员工，确保6月30日前完成。</li>
+            </ul>
+
+            <div class="tip-note">
+                <span style="font-weight:600;">📞 如遇操作问题：</span> 可参考下方操作流程，或拨打12366税务服务热线，也可咨询公司财务部。
+            </div>
+        </section>
+
+        <!-- 第二部分：详细操作流程（无奖金描述） -->
+        <section class="section">
+            <div class="section-title">
+                <span>📱 个人所得税APP操作流程（2025年度汇算）</span>
+                <span class="badge">手把手图文指引</span>
+            </div>
+
+            <p style="margin-bottom:1.5rem; background: #eef5f9; padding: 0.8rem 1.5rem; border-radius: 40px; color: #1b4b5e;">
+                ✅ 准备工作：更新“个人所得税”APP至最新版本，并登录账号（可人脸识别登录）。
+            </p>
+
+            <ol class="steps">
+                <li class="step-item">
+                    <div class="step-title">进入申报入口</div>
+                    <div class="step-desc">
+                        打开APP → 首页点击 <strong>“2025综合所得年度汇算”</strong>专题区域【开始申报】；<br>
+                        或点击下方菜单栏 <strong>“办&查”</strong> → 选择 <strong>“综合所得年度汇算”</strong> → 申报年度选择 <strong>“2025”</strong>。
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">选择填报方式 & 确认基本信息</div>
+                    <div class="step-desc">
+                        推荐选择 <strong>“申报表预填服务”</strong>（系统自动调取2025收入纳税数据）→ 点击“开始申报” → “我已阅读并知晓”。<br>
+                        核对个人基础信息（姓名、身份证号、任职受雇单位）→ 无误后点击 <strong>“下一步”</strong>。
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">核心环节：收入和税前扣除核对</div>
+                    <div class="step-desc">
+                        <ul style="margin-top:0.3rem;">
+                            <li><strong>核对收入总额</strong>：查看页面显示的收入是否正确。如有疑问或不属于本单位的收入，请留意。</li>
+                            <li><strong>核对专项附加扣除</strong>：确认子女教育、赡养老人、住房贷款利息、继续教育等是否已正确填报。如需补填“大病医疗”，点击“大病医疗”进行补充（凭医保单据填写个人负担金额）。</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">税款计算 & 提交申报</div>
+                    <div class="step-desc">
+                        核对无误后点击 <strong>“下一步”</strong> → 系统计算应退/补税额 → 点击 <strong>“继续”</strong> → 勾选同意 → 点击 <strong>“确认”</strong> 完成申报提交。
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">申请退税 或 缴纳税款</div>
+                    <div class="step-desc">
+                        <p><span style="background:#d8f0dc; padding:4px 12px; border-radius:20px;">🔵 如果需要退税</span>：点击 <strong>“申请退税”</strong> → 选择本人I类借记卡 → 提交。等待审核到账（通常1-2周）。</p>
+                        <p><span style="background:#ffe1cf; padding:4px 12px; border-radius:20px;">🟠 如果需要补税</span>：点击 <strong>“立即缴税”</strong> → 选择支付方式（微信/支付宝/银行卡）→ <strong>务必在6月30日前完成支付</strong>，否则产生滞纳金。</p>
+                    </div>
+                </li>
+            </ol>
+
+            <!-- 温馨提示区块（已去掉奖金相关提示） -->
+            <div style="margin: 2rem 0 1rem 0; background: #d9eaf3; border-radius: 32px; padding: 1.5rem 2rem;">
+                <span style="font-weight:600; font-size:1.1rem;">💡 温馨提示：</span>
+                <ul style="margin-top: 0.8rem; padding-left: 1.5rem;">
+                    <li>提交申报后，可在APP“办税” → “申报查询”中查看办理进度。</li>
+                    <li>如需补税但金额不超过400元，或年收入不超12万元，系统可能引导免申报，但请以实际页面提示为准。</li>
+                    <li>请务必在6月30日前完成补税，避免产生滞纳金并影响个人纳税信用。</li>
+                </ul>
+            </div>
+
+            <!-- 按钮组：下载APP / 预约汇算 / 查看专项附加扣除(新窗口打开) -->
+            <div class="button-group">
+                <a class="mock-btn" href="https://www.etax.chinatax.gov.cn/webstatic/download.html" target="_blank" rel="noopener noreferrer">📲 下载APP</a>
+                <a class="mock-btn primary" href="itms-apps://itunes.apple.com/cn/app/id1433862594?mt=8" 
+                   onclick="if(confirm('是否打开个人所得税APP？\n如果未安装或无法打开，请先下载APP。')){ window.location.href='itms-apps://itunes.apple.com/cn/app/id1433862594?mt=8'; return false; } return true;">
+                   ⭐ 预约/进入汇算
+                </a>
+                <!-- 点击“查看专项附加扣除”在新页面打开独立文件（专项附加扣除详解） -->
+                <a class="mock-btn" href="#" id="openDeductionBtn">📖 查看专项附加扣除</a>
+            </div>
+        </section>
+
+        <!-- 落款提醒 -->
+        <div class="footer-note">
+            ⏳ 截止日期：2026年6月30日 · 请各部门同事相互转告，及时办理<br>
+            <span style="opacity:0.7;">本通知及操作流程由公司财务部编制，仅作指引，如有政策调整以税务机关最新规定为准。</span>
+        </div>
+    </div>
+</div>
+
+<!-- 专项附加扣除详细内容的独立HTML (点击按钮时以新窗口打开) -->
+<script>
+(function() {
+    // 专项附加扣除页面的完整HTML字符串（完全独立，无乱码）
+    const deductionPageHTML = `<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人所得税专项附加扣除标准与详解（2026版）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #f2f6f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 35, 55, 0.25);
+            overflow: hidden;
+            border: 1px solid #e2eef5;
+        }
+        .hero {
+            background: linear-gradient(105deg, #09303e 0%, #1b556b 100%);
+            color: white;
+            padding: 2.5rem 3rem;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .hero h1 span {
+            background: rgba(255,255,255,0.15);
+            padding: 0.3rem 1.2rem;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 400;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .hero .subhead {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.85;
+            border-left: 4px solid #7fc1d9;
+            padding-left: 1.2rem;
+        }
+        .content {
+            padding: 2.8rem 3rem;
+        }
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 500;
+            color: #0a3240;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .section-title .badge {
+            background: #1b556b;
+            color: white;
+            padding: 0.2rem 1.5rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #ddecf5;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 6px 16px rgba(0,45,60,0.03);
+            transition: all 0.1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            border-color: #9dc6db;
+            box-shadow: 0 16px 28px -12px #b6d6e9;
+        }
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+        .card h3 {
+            font-size: 1.6rem;
+            font-weight: 550;
+            color: #0f3b4a;
+            margin-bottom: 0.75rem;
+            border-bottom: 2px solid #c6e2f0;
+            padding-bottom: 0.4rem;
+            display: inline-block;
+        }
+        .amount {
+            background: #e2f0f6;
+            border-radius: 40px;
+            padding: 0.3rem 1.4rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #11596f;
+            display: inline-block;
+            margin: 0.8rem 0 1rem 0;
+            border: 1px solid #aacfdf;
+        }
+        .detail-list {
+            list-style: none;
+            margin: 1rem 0 0.5rem;
+        }
+        .detail-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.8rem;
+            position: relative;
+            line-height: 1.5;
+            color: #1f4554;
+        }
+        .detail-list li::before {
+            content: "●";
+            color: #1b6b84;
+            font-weight: bold;
+            position: absolute;
+            left: 0.2rem;
+            font-size: 1.2rem;
+        }
+        .tag {
+            display: inline-block;
+            background: #f4e9d8;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #5d4a2c;
+            margin-right: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            border: 1px solid #eedbbd;
+        }
+        .warning-note {
+            background: #fef6e6;
+            border-left: 6px solid #e7a83e;
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            margin: 2rem 0 2.5rem;
+            color: #3f3a2b;
+        }
+        .warning-note strong {
+            color: #b0560a;
+        }
+        .faq-box {
+            background: #f0f8fe;
+            border-radius: 26px;
+            padding: 1.8rem 2.5rem;
+        }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem 2rem;
+            margin-top: 1.5rem;
+        }
+        .faq-item {
+            border-bottom: 1px solid #c8ddec;
+            padding-bottom: 1rem;
+        }
+        .faq-q {
+            font-weight: 650;
+            color: #0d3d4f;
+            margin-bottom: 0.3rem;
+            display: flex;
+            gap: 8px;
+        }
+        .faq-q::before {
+            content: "❓";
+            color: #24738b;
+        }
+        .faq-a {
+            color: #2b5668;
+            padding-left: 1.8rem;
+            line-height: 1.5;
+        }
+        .footer-note {
+            margin-top: 3rem;
+            border-top: 1px solid #bdd2e0;
+            padding-top: 2rem;
+            text-align: center;
+            color: #3d687c;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 800px) {
+            .hero { padding: 2rem 1.5rem; }
+            .content { padding: 2rem 1.5rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .faq-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>
+            📋 个人所得税专项附加扣除 
+            <span>2026版 · 标准与详解</span>
+        </h1>
+        <div class="subhead">七项扣除 · 夫妻共享技巧 · 高频易错提醒 · 填报指引</div>
+    </div>
+    <div class="content">
+        <div class="section-title">
+            <span>🧾 七项扣除核心标准</span>
+            <span class="badge">定额/据实</span>
+        </div>
+        <div class="grid-2">
+            <!-- 1. 3岁以下婴幼儿照护 -->
+            <div class="card">
+                <div class="card-icon">👶</div>
+                <h3>3岁以下婴幼儿照护</h3>
+                <div class="amount">每个婴幼儿 2000元/月</div>
+                <ul class="detail-list">
+                    <li>父母可选择一方100%扣除，或双方各50%</li>
+                    <li>从出生当月扣至满3周岁的前一个月</li>
+                    <li>多子女：每个孩子均可享受，额度叠加</li>
+                </ul>
+                <div><span class="tag">分配灵活</span><span class="tag">叠加享受</span></div>
+            </div>
+            <!-- 2. 子女教育 -->
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>子女教育</h3>
+                <div class="amount">每个子女 2000元/月</div>
+                <ul class="detail-list">
+                    <li>学前教育至全日制学历教育，含境外学校</li>
+                    <li>扣除方式同婴幼儿照护：一方全额或双方各半</li>
+                    <li>子女毕业后需及时录入终止时间</li>
+                </ul>
+                <div><span class="tag">境内/境外均可</span><span class="tag">民办也适用</span></div>
+            </div>
+            <!-- 3. 赡养老人 -->
+            <div class="card">
+                <div class="card-icon">👵</div>
+                <h3>赡养老人</h3>
+                <div class="amount">3000元/月 (总额)</div>
+                <ul class="detail-list">
+                    <li><strong>独生子女</strong>：每月定额扣除3000元</li>
+                    <li><strong>非独生子女</strong>：分摊3000元，每人≤1500元/月</li>
+                    <li>被赡养人须年满60周岁，父母或祖辈无子女</li>
+                    <li>不能扣除配偶父母</li>
+                </ul>
+                <div><span class="tag">不可转移</span><span class="tag">指定分摊优先</span></div>
+            </div>
+            <!-- 4. 住房贷款利息 -->
+            <div class="card">
+                <div class="card-icon">🏠</div>
+                <h3>住房贷款利息</h3>
+                <div class="amount">1000元/月 (最长240个月)</div>
+                <ul class="detail-list">
+                    <li>首套住房贷款利率，认贷不认房</li>
+                    <li>夫妻婚前各有一套首套贷：婚后可选一套扣100%，或各自扣50%</li>
+                    <li>只能享受一次首套房贷扣除</li>
+                </ul>
+                <div><span class="tag">认贷不认房</span><span class="tag">二选一</span></div>
+            </div>
+            <!-- 5. 住房租金 -->
+            <div class="card">
+                <div class="card-icon">🏙️</div>
+                <h3>住房租金</h3>
+                <div class="amount">800/1100/1500元/月 (三档)</div>
+                <ul class="detail-list">
+                    <li><strong>1500元</strong>：直辖市/省会/计划单列市</li>
+                    <li><strong>1100元</strong>：户籍人口>100万城市</li>
+                    <li><strong>800元</strong>：户籍人口≤100万城市</li>
+                    <li>夫妻同城只能由承租人扣除；异地无房可分别扣</li>
+                </ul>
+                <div><span class="tag">不与房贷同享</span><span class="tag">按合同承租人</span></div>
+            </div>
+            <!-- 6. 继续教育 -->
+            <div class="card">
+                <div class="card-icon">🎓</div>
+                <h3>继续教育</h3>
+                <div class="amount">学历400元/月 · 证书3600元/年</div>
+                <ul class="detail-list">
+                    <li><strong>学历(学位)</strong>：每月400元，最长48个月</li>
+                    <li><strong>职业资格继续教育</strong>：取得证书当年一次性扣3600元</li>
+                    <li>需在《国家职业资格目录》内</li>
+                </ul>
+                <div><span class="tag">境内教育</span><span class="tag">自学考试有考籍即可</span></div>
+            </div>
+            <!-- 7. 大病医疗 -->
+            <div class="card">
+                <div class="card-icon">🏥</div>
+                <h3>大病医疗</h3>
+                <div class="amount">限额8万元/年 (据实)</div>
+                <ul class="detail-list">
+                    <li>医保目录内自付累计 > 1.5万元的部分，在8万元内据实扣除</li>
+                    <li>本人、配偶、未成年子女可合并由一人扣除</li>
+                    <li>只能在汇算清缴时填报，3月至6月</li>
+                </ul>
+                <div><span class="tag">仅限医保目录内</span><span class="tag">不能扣父母</span></div>
+            </div>
+        </div>
+        <!-- 夫妻共享策略 -->
+        <div class="warning-note">
+            <strong style="font-size:1.2rem;">💞 夫妻共享 · 最优分配策略</strong> <br><br>
+            • <strong>子女教育/婴幼儿照护</strong>：由家庭中税率高的一方全额扣除2000元/月，节税最多；收入相近则各扣50% <br>
+            • <strong>住房贷款利息</strong>：只能一方扣除1000元/月，不可双扣；婚前各有一套首套房贷，可选各扣50% <br>
+            • <strong>住房租金</strong>：夫妻同城只能承租人扣除；异地工作且均无房，两人可分别扣除 <br>
+            • <strong>大病医疗</strong>：夫妻双方及未成年子女的支出可合并放在一方扣除，每人上限8万元，合计最高16万元 <br>
+            • <strong>赡养老人</strong>：仅限本人父母，不能分摊配偶父母 <br>
+            <span style="display:inline-block; margin-top:0.8rem; background:#fff3d6; padding:0.3rem 1rem; border-radius:50px;">⚠️ 房贷利息与住房租金同一个纳税年度内不能同时享受</span>
+        </div>
+        <!-- 高频易错点 -->
+        <div class="section-title">
+            <span>🚨 高频易错点 · 税务预警红线</span>
+            <span class="badge">避免违规</span>
+        </div>
+        <div style="display:flex; flex-direction: column; gap:1rem; margin-bottom:2.5rem;">
+            <div style="background:#fff5f0; border-radius:18px; padding:1.2rem 2rem; border:1px solid #ffcdb0;">
+                <span style="font-weight:700;">❌ 非独生子女按独生子女填报赡养老人</span> —— 触发税务预警，需补税并可能产生滞纳金。
+            </div>
+            <div style="background:#f0f5ff; border-radius:18px; padding:1.2rem 2rem; border:1px solid #b9d8f0;">
+                <span style="font-weight:700;">📛 同一子女双方合计扣除超过100%</span> —— 违规。只能一方100%或双方各50%
+            </div>
+            <div style="background:#f0f5ff; border-radius:18px; padding:1.2rem 2rem; border:1px solid #b9d8f0;">
+                <span style="font-weight:700;">🏡 房贷利息未录入终止时间</span> —— 贷款还完或满240个月后继续扣除，会被要求补税。
+            </div>
+            <div style="background:#fff5f0; border-radius:18px; padding:1.2rem 2rem; border:1px solid #ffcdb0;">
+                <span style="font-weight:700;">⚠️ 同时填报房贷利息与住房租金</span> —— 系统直接判定重复，两项都可能失效。
+            </div>
+        </div>
+        <!-- 快速FAQ -->
+        <div class="faq-box">
+            <div style="font-size:1.5rem; font-weight:550; color:#0d3f51; margin-bottom:0.8rem;">📌 快速答疑 · 常见问题精粹</div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-q">合租住房怎么扣除租金？</div>
+                    <div class="faq-a">各自与出租方签订规范合同，可分别按定额标准扣除</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">夫妻婚前各有一套首套房贷，婚后怎么扣？</div>
+                    <div class="faq-a">可选一套由购买方扣100%，或各自扣50%，每人每月500元</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">孩子满3周岁当月，能同时享受婴幼儿照护和子女教育吗？</div>
+                    <div class="faq-a">可以。1月至8月婴幼儿照护，9月至12月子教，同一年可同时享受</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">私立医院就诊能否享受大病医疗？</div>
+                    <div class="faq-a">若医院纳入医保结算系统，医保范围内自付部分可以扣除</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">自考/成人本科什么时候开始扣继续教育？</div>
+                    <div class="faq-a">取得考籍管理档案后即可按月扣除400元</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">赡养老人分摊方式可以中途改吗？</div>
+                    <div class="faq-a">一个纳税年度内不得变更，需年初定好或签协议</div>
+                </div>
+            </div>
+        </div>
+        <!-- 操作小贴士 -->
+        <div style="margin: 2.5rem 0 1.5rem; background: #e3f0f5; border-radius: 40px; padding: 1.5rem 2.5rem;">
+            <span style="font-weight:700; font-size:1.2rem;">📱 确认操作提醒</span><br>
+            • 每年12月1日至31日通过个税APP确认下一年度专项附加扣除 <br>
+            • 无变化：点击“一键带入”；有修改/新增：在填报记录中修改或新增项目 <br>
+            • 大病医疗只能在次年3月至6月汇算清缴时填写，平时不能扣 <br>
+            • 2026年扣除标准与2025年保持一致
+        </div>
+        <div class="footer-note">
+            <span style="opacity:0.8;">本指引依据《个人所得税专项附加扣除暂行办法》及税务部门公开信息整理。</span><br>
+            <span style="opacity:0.6;">具体扣除以税务机关解释为准。如有调整，以国家税务总局最新规定为准。</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>`;
+
+    // 获取按钮
+    const btn = document.getElementById('openDeductionBtn');
+    if (btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault(); // 阻止默认跳转
+            
+            // 创建一个新窗口
+            const newWindow = window.open('', '_blank');
+            if (newWindow) {
+                // 写入完整的HTML内容
+                newWindow.document.write(deductionPageHTML);
+                newWindow.document.close(); // 关闭文档流，确保加载完成
+                newWindow.focus();
+            } else {
+                alert('浏览器阻止了新窗口打开，请手动点击查看。');
+            }
+        });
+    }
+})();
+</script>
+<!-- 为确保iOS预约按钮正常，保留原有逻辑但不影响新按钮 -->
+</body>
+</html>
